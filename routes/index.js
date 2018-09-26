@@ -16,6 +16,7 @@ const scrapeURL = "https://blog.mozilla.org/";
 /* GET home page. */
 router.get('/', function (req, res) {
   Article.find()
+    .sort('-publishDate')
     .populate('notes')
     .then(function (docs) {
 
